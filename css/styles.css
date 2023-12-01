@@ -14,6 +14,10 @@ ul {
     list-style-type: none;
 }
 
+a {
+    text-decoration: none;
+}
+
 .container {
     max-width: 1000px;
     width: 100%;
@@ -32,15 +36,15 @@ header {
     top: 0;
 }
 
-header h1 {
+header #main-logo {
     text-align: center;
     padding: 8px 0;
 }
 
-header h1 a {
+header #main-logo a,
+main #components article h2 {
     font-family: 'Mali', cursive;
     color: #fff;
-    text-decoration: none;
 }
 
 header a:hover {
@@ -71,7 +75,9 @@ main {
     justify-content: center;
     padding: 0 20px;
 }
+/* /HOMEPAGE */
 
+/* LIST COMPONENTS */
 main #components {
     display: flex;
     flex-flow: row wrap;
@@ -92,34 +98,136 @@ main #components article h2 {
     padding: 20px 0;
     text-align: center;
     color: #fff;
+    border-radius: 20px 20px 0 0;
 }
 
 main #components article ul {
-    background-color: rgb(172 93 45 / 70%);
+    background-color: rgb(172 93 45 / 85%);
     padding: 20px;
     color: #270f00;
-    font-size: 1.2em;
+    font-size: 1em;
+    border-radius: 0 0 20px 20px;
 }
 
-
-main #components article li {
-    padding: 10px 15px;
+main #components .list-item {
+    padding: 15px 15px 25px;
     background-color: #cf9a7a;
     margin-bottom: 10px;
+    position: relative;
 }
 
-main #components article li:last-child {
+main #components .list-item .button-start {
+    display: block;
+    color: #270f00;
+    font-size: .8em;
+    padding: 5px 10px;
+    background: #f3d0ae;
+    width: fit-content;
+    margin-top: 5px;
+    border: 1px solid #b46f43;
+    border-radius: 5px;
+}
+
+main #components .list-item .button-start:hover {
+    opacity: .9;
+}
+
+main #components .list-item:last-child {
     margin-bottom: 0;
 }
 
-main #components article li:nth-child(odd) {
+main #components .list-item:nth-child(odd) {
     background-color: #e4d1bf;
 }
+/* /LIST COMPONENTS */
 
-/* /HOMEPAGE */
+/* CHECKBOX SELECTOR */
+input[type="checkbox"] {
+    margin-right: 8px;
+}
 
+input[type="checkbox"]:checked::before {
+    content: "\1F9E1";
+    font-size: 16px;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    animation: fadeIn 0.7s;
+}
 
+input[type="checkbox"]:checked:not([checked])::after {
+    content: "Task completed!";
+    font-size: 12px;
+    position: absolute;
+    bottom: 7px;
+    right: 30px;
+    animation: fadeIn 0.7s;
+}
 
+main #components .list-item:has(input[type=checkbox]:checked) {
+    background-color: #bcd7a6;
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+/* /CHECKBOX SELECTOR */
+
+/* LIGHTBOX - TASK STARTED */
+.lightbox {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    display: none;
+}
+
+.lightbox:target {
+    display: block;
+}
+
+.lightbox article {
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.lightbox#task-started article {
+    background-color: #bcd7a6;
+    color: #214900;
+}
+
+.lightbox article h2 {
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.lightbox#task-started article h2::after {
+    content: "\23F3";
+    font-size: 16px;
+    position: absolute;
+    top: 0;
+    margin-left: 10px;
+    animation: fadeIn 0.7s;
+}
+
+.lightbox_close {
+    position: absolute;
+    top: 0px;
+    right: 5%;
+    color: #fff;
+    font-size: 26px;
+    font-weight: bolder;
+    transition: all .5s ease-in-out;
+}
+
+.lightbox_close:hover {
+    opacity: 0.5;
+}
+/* /LIGHTBOX - TASK STARTED */
+
+/* MEDIA QUERIES */
 @media (min-width: 960px) {
     main {
         height: calc(100vh - 60px);
@@ -135,7 +243,6 @@ main #components article li:nth-child(odd) {
     }
 }
 
-/* 644px 645px */
 @media (max-width: 959px) {
     main {
         padding: 30px 20px;
@@ -146,4 +253,9 @@ main #components article li:nth-child(odd) {
         gap: 10px;
         justify-content: center;
     }
+    
+    .lightbox {
+        width: 70%;
+    }
 }
+/* /MEDIA QUERIES */
