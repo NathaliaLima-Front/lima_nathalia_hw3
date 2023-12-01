@@ -34,6 +34,7 @@ header {
     background-color: rgb(172 93 45);
     position: sticky;
     top: 0;
+    z-index: 1;
 }
 
 header #main-logo {
@@ -110,7 +111,7 @@ main #components article ul {
 }
 
 main #components .list-item {
-    padding: 15px 15px 25px;
+    padding: 10px 20px;
     background-color: #cf9a7a;
     margin-bottom: 10px;
     position: relative;
@@ -177,7 +178,7 @@ main #components .list-item:has(input[type=checkbox]:checked) {
 /* LIGHTBOX - TASK STARTED */
 .lightbox {
     position: absolute;
-    top: 0;
+    top: 59px;
     right: 0;
     width: 50%;
     display: none;
@@ -230,7 +231,7 @@ main #components .list-item:has(input[type=checkbox]:checked) {
 /* MEDIA QUERIES */
 @media (min-width: 960px) {
     main {
-        height: calc(100vh - 60px);
+        height: 100vh;
     }
 
     main #components {
