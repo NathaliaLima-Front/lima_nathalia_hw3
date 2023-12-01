@@ -14,7 +14,7 @@
 </head>
 <body>
     <header>
-        <h1>
+        <h1 id="main-logo">
             <a href="/">To Do List</a>
         </h1>
     </header>
@@ -22,31 +22,56 @@
     <main>
         <div id="components">
             <article id="component-todo">
-                <h2>To Dos</h2>
+                <h2>To Do</h2>
                 <ul class="list-todo">
-                    <li>Mobile - HTML + CSS - Dining page</li>
-                    <li>Mobile - HTML + CSS - Page of my choice</li>
-                    <li>Mobile - Homepage CSS animation + Pseudo selector</li>
+                    <li class="list-item">
+                        Mobile - HTML + CSS - Dining page
+                        <a href="#task-started" class="button-start">Start Task</a>
+                    </li>
+                    <li class="list-item">
+                        Mobile - HTML + CSS - Page of my choice
+                        <a href="#task-started" class="button-start">Start Task</a>
+                    </li>
+                    <li class="list-item">
+                        Mobile - Homepage CSS animation + Pseudo selector
+                        <a href="#task-started" class="button-start">Start Task</a>
+                    </li>
                 </ul>
             </article>
     
             <article id="component-inprogress">
                 <h2>In Progress</h2>
                 <ul class="list-inprogress">
-                    <li>Desktop - Prototype - Page of my choice 2</li>
-                    <li>Mobile - HTML + CSS - Homepage</li>
-                    <li>GitHub workflow and Readme</li>
+                    <li class="list-item">
+                        <input type="checkbox">
+                        Desktop - Prototype - Page of my choice 2</li>
+                    <li class="list-item">
+                        <input type="checkbox">
+                        Mobile - HTML + CSS - Homepage</li>
+                    <li class="list-item">
+                        <input type="checkbox">
+                        GitHub workflow and Readme</li>
                 </ul>
             </article>
     
             <article id="component-done">
                 <h2>Done</h2>
                 <ul class="list-done">
-                    <li>Mobile - Wireframe - Page of my choice 1</li>
-                    <li>Mobile - Finished page design - Page of my choice 1</li>
-                    <li>Desktop - Wireframe - Page of my choice 2</li>
-                    <li>Desktop - Finished page design - Page of my choice 2</li>
-                    <li>Mobile - Prototype - Page of my choice 1</li>
+                    <li class="list-item">
+                        <input type="checkbox" checked>
+                        Mobile - Wireframe - Page of my choice 1</li>
+                    <li class="list-item">
+                        <input type="checkbox" checked>
+                        Mobile - Finished page design - Page of my choice 1</li>
+                    <li class="list-item">
+                        <input type="checkbox" checked>
+                        Desktop - Wireframe - Page of my choice 2</li>
+                    <li class="list-item">
+                        <input type="checkbox" checked>
+                        Desktop - Finished page design - Page of my choice 2</li>
+                    <li class="list-item">
+                        <input type="checkbox" checked>
+                        Mobile - Prototype - Page of my choice 1</li>
                 </ul>
             </article>
         </div>
@@ -55,5 +80,13 @@
     <footer class="sticky-footer">
         <h3>Made with Love by Nathalia Lima</h3>
     </footer>
+
+    <section class="lightbox" id="task-started">
+        <a href="" class="lightbox_close">x</a>
+        <article>
+            <h2>Success!</h2>
+            <p>The task was started!</p>
+        </article>
+    </section>
 </body>
 </html>
